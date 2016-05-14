@@ -4,6 +4,12 @@ PHP                                                                        NEWS
 
 You should not add anything to this tree. PHP 5.3 reached EOL.
 
+06 Mar 2014, PHP 5.4.26
+
+- Fileinfo:
+  . Fixed bug #66820 (out-of-bounds memory access in fileinfo). (CVE-2014-2270)
+    (Remi)
+
 14 Aug 2014, PHP 5.3.29
 
 - Core:
