@@ -1,8 +1,21 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-?? ??? 20??, PHP 5.3.30
+07 Aug 2014, PHP 5.4.32
 
-You should not add anything to this tree. PHP 5.3 reached EOL.
+- Core:
+  . Fixed bug #67717 (segfault in dns_get_record). (CVE-2014-3597) (Remi)
+
+- Fileinfo:
+  . Fixed bug #67716 (Segfault in cdf.c). (CVE-2014-3587) (Remi)
+
+- GD:
+  . Fixed bug #66901 (php-gd 'c_color' NULL pointer dereference).
+    (CVE-2014-2497) (Remi)
+
+- SPL:
+  . Fixed bug #67539 (ArrayIterator use-after-free due to object change during
+    sorting). (CVE-2014-4698) (research at insighti dot org, Laruence)
+  . Fixed bug #67538 (SPL Iterators use-after-free). (CVE-2014-4670) (Laruence)
 
 06 Mar 2014, PHP 5.4.26
 
