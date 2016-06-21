@@ -133,6 +133,10 @@ gdImagePtr gdImageCreate (int sx, int sy)
 		return NULL;
 	}
 
+	if (overflow2(sizeof(unsigned char *), sx)) {
+		return NULL;
+	}
+
 	im = (gdImage *) gdCalloc(1, sizeof(gdImage));
 
 	/* Row-major ever since gd 1.3 */
@@ -1094,12 +1098,12 @@ void gdImageLine (gdImagePtr im, int x1, int y1, int x2, int y2, int color)
 	int thick = im->thick;
 
 	if (color == gdAntiAliased) {
-		/* 
+		/*
 		   gdAntiAliased passed as color: use the much faster, much cheaper
 		   and equally attractive gdImageAALine implementation. That
 		   clips too, so don't clip twice.
 		   */
-		gdImageAALine(im, x1, y1, x2, y2, im->AA_color); 
+		gdImageAALine(im, x1, y1, x2, y2, im->AA_color);
 		return;
 	}
 
@@ -1876,7 +1880,7 @@ void gdImageFill(gdImagePtr im, int x, int y, int nc)
 		return;
 	}
 
-	alphablending_bak = im->alphaBlendingFlag;	
+	alphablending_bak = im->alphaBlendingFlag;
 	im->alphaBlendingFlag = 0;
 
 	if (nc==gdTiled){
@@ -1888,7 +1892,7 @@ void gdImageFill(gdImagePtr im, int x, int y, int nc)
 	wx2=im->sx;wy2=im->sy;
 	oc = gdImageGetPixel(im, x, y);
 	if (oc==nc || x<0 || x>wx2 || y<0 || y>wy2) {
-		im->alphaBlendingFlag = alphablending_bak;	
+		im->alphaBlendingFlag = alphablending_bak;
 		return;
 	}
 
@@ -1951,7 +1955,7 @@ skip:			for (x++; x<=x2 && (gdImageGetPixel(im, x, y)!=oc); x++);
 	efree(stack);
 
 done:
-	im->alphaBlendingFlag = alphablending_bak;	
+	im->alphaBlendingFlag = alphablending_bak;
 }
 
 static void _gdImageFillTiled(gdImagePtr im, int x, int y, int nc)
@@ -2060,7 +2064,7 @@ void gdImageRectangle (gdImagePtr im, int x1, int y1, int x2, int y2, int color)
 		half1 = thick - half;
 		x1ul = x1 - half;
 		y1ul = y1 - half;
-		
+
 		x2lr = x2 + half;
 		y2lr = y2 + half;
 
@@ -2258,7 +2262,7 @@ void gdImageCopyMerge (gdImagePtr dst, gdImagePtr src, int dstX, int dstY, int s
 	int tox, toy;
 	int ncR, ncG, ncB;
 	toy = dstY;
-	
+
 	for (y = srcY; y < (srcY + h); y++) {
 		tox = dstX;
 		for (x = srcX; x < (srcX + w); x++) {
@@ -2903,7 +2907,7 @@ int gdAlphaBlend (int dst, int src) {
     src_weight = gdAlphaTransparent - src_alpha;
     dst_weight = (gdAlphaTransparent - dst_alpha) * src_alpha / gdAlphaMax;
     tot_weight = src_weight + dst_weight;
-    
+
 /* -------------------------------------------------------------------- */
 /*      What red, green and blue result values will we use?             */
 /* -------------------------------------------------------------------- */
