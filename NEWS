@@ -1,6 +1,49 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+21 Jul 2016, PHP 5.5.38
+
+- BZip2:
+   . Fixed bug #72613 (Inadequate error handling in bzread()). (CVE-2016-5399)
+     (Stas)
+
+- Core:
+   . Fixed bug #70480 (php_url_parse_ex() buffer overflow read).
+     (CVE-2016-6288) (Stas)
+   . Fixed bug #72513 (Stack-based buffer overflow vulnerability in
+     virtual_file_ex). (CVE-2016-6289) (loianhtuan at gmail dot com)
+   . Fixed bug #72562 (Use After Free in unserialize() with Unexpected Session
+     Deserialization). (CVE-2016-6290) (taoguangchen at icloud dot com)
+   . Fixed bug #72573 (HTTP_PROXY is improperly trusted by some PHP libraries
+     and applications). (CVE-2016-5385) (Stas)
+
+- EXIF:
+   . Fixed bug #72603 (Out of bound read in exif_process_IFD_in_MAKERNOTE).
+     (CVE-2016-6291) (Stas)
+   . Fixed bug #72618 (NULL Pointer Dereference in exif_process_user_comment).
+     (CVE-2016-6292) (Stas)
+
+- GD:
+   . Fixed bug #72512 (gdImageTrueColorToPaletteBody allows arbitrary write/read
+     access). (Pierre)
+   . Fixed bug #72519 (imagegif/output out-of-bounds access). (Pierre)
+
+- Intl:
+   . Fixed bug #72533 (locale_accept_from_http out-of-bounds access).
+     (CVE-2016-6294) (Stas)
+
+- SNMP:
+   . Fixed bug #72479 (Use After Free Vulnerability in SNMP with GC and
+     unserialize()). (CVE-2016-6295) (taoguangchen at icloud dot com)
+
+- Xmlrpc:
+   . Fixed bug #72606 (heap-buffer-overflow (write) simplestring_addn
+     simplestring.c). (CVE-2016-6296) (Stas)
+
+- Zip:
+   . Fixed bug #72520 (Stack-based buffer overflow vulnerability in
+     php_stream_zip_opener). (CVE-2016-6297) (loianhtuan at gmail dot com)
+
 23 Jun 2016, PHP 5.5.37
 
 - Core:
