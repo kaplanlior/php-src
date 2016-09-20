@@ -1,6 +1,36 @@
 PHP                                                                        NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+18 Aug 2016, PHP 5.6.25
+
+- Core:
+  . Fixed bug #70436 (Use After Free Vulnerability in unserialize()).
+    (Taoguang Chen)
+  . Fixed bug #72663 (Create an Unexpected Object and Don't Invoke
+    __wakeup() in Deserialization). (CVE-2016-7124) (Stas)
+  . Fixed bug #72681 (PHP Session Data Injection Vulnerability).
+    (CVE-2016-7125) (Stas)
+
+- EXIF:
+  . Fixed bug #72627 (Memory Leakage In exif_process_IFD_in_TIFF).
+    (CVE-2016-7128) (Stas)
+
+- GD:
+  . Fixed bug #72697 (select_colors write out-of-bounds). (CVE-2016-7126)
+    (Stas)
+  . Fixed bug #72730 (imagegammacorrect allows arbitrary write access).
+    (CVE-2016-7127) (Stas)
+
+- Wddx:
+  . Fixed bug #72749 (wddx_deserialize allows illegal memory access).
+    (CVE-2016-7129) (Stas)
+  . Fixed bug #72750 (wddx_deserialize null dereference). (CVE-2016-7130)
+    (Stas)
+  . Fixed bug #72790 (wddx_deserialize null dereference with invalid xml).
+    (CVE-2016-7131) (Stas)
+  . Fixed bug #72799 (wddx_deserialize null dereference in
+    php_wddx_pop_element). (CVE-2016-7132) (Stas)
+
 21 Jul 2016, PHP 5.5.38
 
 - BZip2:
